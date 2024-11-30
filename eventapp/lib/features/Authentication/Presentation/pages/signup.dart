@@ -1,5 +1,6 @@
 import 'package:eventapp/features/Authentication/Presentation/widgets/InputFormField.dart';
 import 'package:eventapp/features/Authentication/Presentation/widgets/backgroundpaiter.dart';
+import 'package:eventapp/features/Authentication/Presentation/widgets/button.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -99,6 +100,14 @@ class _SignupState extends State<Signup> {
                     ),
                   ),
                 ),
+                SizedBox(
+                  height: 40,
+                ),
+                Center(
+                    child: Buttonone(
+                  label: "SIGNUP",
+                  onPressed: () {},
+                ))
               ],
             ),
           ),

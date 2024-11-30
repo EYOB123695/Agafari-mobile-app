@@ -34,7 +34,7 @@ class BackgroundPainter extends CustomPainter {
       ..color = Appcolors.Backgroundcolortwo
       ..style = PaintingStyle.fill;
 
-    // Path to draw the area between the lines
+    
     Path pathTwo = Path();
 
     pathTwo.moveTo(size.width, 0);
@@ -66,65 +66,3 @@ class BackgroundPainter extends CustomPainter {
     return false;
   }
 }
-
-
-
-// class Trianglebackground extends StatelessWidget {
-//   final double width;
-//   final double height;
-//   final double top;
-//   final double left;
-//   final double angle;
-//   const Trianglebackground({
-//     Key? key,
-//     required this.width,
-//     required this.height,
-//     required this.top,
-//     required this.left,
-//     required this.angle,
-//   }) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Positioned(
-//       top: top,
-//       left: left,
-//       child: Container(
-//         width: width,
-//         height: height,
-//         decoration: BoxDecoration(
-//           color: Appcolors.Backgroundcolorone,
-//           borderRadius: BorderRadius.only(
-//             topLeft: Radius.circular(40),
-//           ),
-//         ),
-//         child: Transform.rotate(
-//           angle: angle * 3.14159 / 180,
-//           child: ClipPath(
-//             clipper: Triangleclipper(),
-//             child: Container(
-//               color: Appcolors.Backgroundcolorone, // Set the background color
-//             ),
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
-
-// class Triangleclipper extends CustomClipper<Path> {
-//   @override
-//   Path getClip(Size size) {
-//     Path path = Path();
-//     path.lineTo(0, 0);
-//     path.lineTo(size.width, 0);
-//     path.lineTo(0, size.height);
-//     path.close();
-//     return path;
-//   }
-
-//   @override
-//   bool shouldReclip(covariant CustomClipper<dynamic> oldClipper) {
-//     return false;
-//   }
-// }
