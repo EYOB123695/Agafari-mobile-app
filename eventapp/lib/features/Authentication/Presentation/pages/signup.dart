@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:eventapp/features/Authentication/Presentation/pages/signin.dart';
 import 'package:eventapp/features/Authentication/Presentation/widgets/InputFormField.dart';
 import 'package:eventapp/features/Authentication/Presentation/widgets/backgroundpaiter.dart';
 import 'package:eventapp/features/Authentication/Presentation/widgets/button.dart';
@@ -54,54 +55,63 @@ class _SignupState extends State<Signup> {
 
                 //Form
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 40),
-                  child: Form(
-                    key: _formkey,
-                    child: Column(
-                      children: [
-                        InputFormField(
-                          label: "Fullname",
-                          inputType: TextInputType.text,
-                          controller: _Fullnamecontroller,
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return "Please enter your name";
-                            }
-                            return null;
-                          },
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(40),
+                        border: Border.all(color: Color(0xFF6B59FF), width: 2)),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 40, vertical: 18),
+                      child: Form(
+                        key: _formkey,
+                        child: Column(
+                          children: [
+                            InputFormField(
+                              label: "Fullname",
+                              inputType: TextInputType.text,
+                              controller: _Fullnamecontroller,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return "Please enter your name";
+                                }
+                                return null;
+                              },
+                            ),
+                            const SizedBox(height: 20),
+                            InputFormField(
+                              label: "Email",
+                              inputType: TextInputType.emailAddress,
+                              controller: _Emailadresscontroler,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return "Please enter your email";
+                                } else if (!RegExp(
+                                        r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$')
+                                    .hasMatch(value)) {
+                                  return "Please enter a valid email address";
+                                }
+                                return null;
+                              },
+                            ),
+                            const SizedBox(height: 20),
+                            InputFormField(
+                              label: "Password",
+                              inputType: TextInputType.text,
+                              controller: _paswordcontroller,
+                              hideText: true,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return "Please enter your password";
+                                } else if (value.length < 6) {
+                                  return "Password length must be greater than 6";
+                                }
+                                return null;
+                              },
+                            ),
+                          ],
                         ),
-                        const SizedBox(height: 20),
-                        InputFormField(
-                          label: "Email",
-                          inputType: TextInputType.emailAddress,
-                          controller: _Emailadresscontroler,
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return "Please enter your email";
-                            } else if (!RegExp(
-                                    r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$')
-                                .hasMatch(value)) {
-                              return "Please enter a valid email address";
-                            }
-                            return null;
-                          },
-                        ),
-                        const SizedBox(height: 20),
-                        InputFormField(
-                          label: "Password",
-                          inputType: TextInputType.text,
-                          controller: _paswordcontroller,
-                          hideText: true,
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return "Please enter your password";
-                            } else if (value.length < 6) {
-                              return "Password length must be greater than 6";
-                            }
-                            return null;
-                          },
-                        ),
-                      ],
+                      ),
                     ),
                   ),
                 ),
@@ -177,7 +187,12 @@ class _SignupState extends State<Signup> {
                                     fontSize: 15,
                                     color: Color(0xFF22B2FF)),
                                 recognizer: TapGestureRecognizer()
-                                  ..onTap = () {},
+                                  ..onTap = () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => Signin()));
+                                  },
                               ),
                             ]),
                       )

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class InputFormField extends StatelessWidget {
   final String label;
@@ -19,18 +20,32 @@ class InputFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10.0),
-      child: TextFormField(
-        controller: controller,
-        keyboardType: inputType,
-        obscureText: hideText,
-        decoration: InputDecoration(
-          labelText: label,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20),
+      padding: const EdgeInsets.symmetric(vertical: 7.0, horizontal: 10.0),
+      child: Column(
+        children: [
+          Align(
+            alignment: Alignment.topLeft,
+            child: Text(
+              label,
+              style: GoogleFonts.roboto(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                  color: Color(0xFF32ADE6)),
+            ),
           ),
-        ),
-        validator: validator,
+          SizedBox(height: 3),
+          TextFormField(
+            controller: controller,
+            keyboardType: inputType,
+            obscureText: hideText,
+            decoration: InputDecoration(
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+            ),
+            validator: validator,
+          ),
+        ],
       ),
     );
   }

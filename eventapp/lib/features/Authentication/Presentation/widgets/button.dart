@@ -9,20 +9,21 @@ class Buttonone extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-        onPressed: onPressed,
-        child: Text(
-          label,
-          style: GoogleFonts.lalezar(
-            textStyle: const TextStyle(
-              fontSize: 18, 
-              color: Color(0xFFD7F0FF), 
-            ),
+      onPressed: onPressed,
+      child: Text(
+        label,
+        style: GoogleFonts.lalezar(
+          textStyle: const TextStyle(
+            fontSize: 18,
+            color: Color(0xFFD7F0FF),
           ),
         ),
-        style: ElevatedButton.styleFrom(
-            backgroundColor: Color(0xff000000),
-            foregroundColor: Color(0xFFD7F0FF),
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(41))));
+      ),
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Color(0xff000000),
+        foregroundColor: Color(0xFFD7F0FF),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(41)),
+      ),
+    );
   }
 }
