@@ -14,8 +14,8 @@ class Buttonone extends StatelessWidget {
           label,
           style: GoogleFonts.lalezar(
             textStyle: const TextStyle(
-              fontSize: 18, // Adjust font size as needed
-              color: Color(0xFFD7F0FF), // Text color to match foreground
+              fontSize: 18, 
+              color: Color(0xFFD7F0FF), 
             ),
           ),
         ),

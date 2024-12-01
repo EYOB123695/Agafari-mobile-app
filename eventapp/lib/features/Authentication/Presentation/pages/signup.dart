@@ -1,7 +1,12 @@
+import 'dart:ui';
+
 import 'package:eventapp/features/Authentication/Presentation/widgets/InputFormField.dart';
 import 'package:eventapp/features/Authentication/Presentation/widgets/backgroundpaiter.dart';
 import 'package:eventapp/features/Authentication/Presentation/widgets/button.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Signup extends StatefulWidget {
@@ -45,9 +50,9 @@ class _SignupState extends State<Signup> {
                   ),
                 ),
 
-                const SizedBox(height: 40), // Add spacing below the text
+                const SizedBox(height: 40),
 
-                // Form with its own padding
+                //Form
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 40),
                   child: Form(
@@ -104,10 +109,81 @@ class _SignupState extends State<Signup> {
                   height: 40,
                 ),
                 Center(
-                    child: Buttonone(
-                  label: "SIGNUP",
-                  onPressed: () {},
-                ))
+                  child: Column(
+                    children: [
+                      Buttonone(
+                        label: "SIGNUP",
+                        onPressed: () {},
+                      ),
+                      const SizedBox(height: 20),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: Row(
+                          children: [
+                            Expanded(
+                                child: Divider(
+                              color: Color(0xFFFFFFFF),
+                              thickness: 1,
+                            )),
+                            Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 8),
+                              child: Text(
+                                "Or Signup With",
+                                style: GoogleFonts.inter(
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 13,
+                                    color: Color(0xFFFFFFFF)),
+                              ),
+                            ),
+                            Expanded(
+                                child: Divider(
+                              color: Color(0xFFFFFFFF),
+                              thickness: 1,
+                            )),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Container(
+                          width: 55,
+                          height: 55,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Image.asset(
+                            "asset/logo/googlelogo.png",
+                            width: 24,
+                            height: 24,
+                          )),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      RichText(
+                        text: TextSpan(
+                            text: "Already have an account ? ",
+                            style: GoogleFonts.inter(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 15,
+                              color: Color(0xFFFFF9F9),
+                            ),
+                            children: [
+                              TextSpan(
+                                text: "Login",
+                                style: GoogleFonts.inter(
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 15,
+                                    color: Color(0xFF22B2FF)),
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () {},
+                              ),
+                            ]),
+                      )
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
